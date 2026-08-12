@@ -1,12 +1,45 @@
-# Panchayat AI
+# PanchayatAI
 
 **The negotiation engine for every bazaar.**
-One engine phones India's offline markets in their own languages.
-Every market - electronics, freelancers, movers, factory RFQs - is a declarative skill file, not a feature.
+
+> PanchayatAI is an AI voice agent that phones India's offline markets and gets you a better price.
+
+**▶ Watch the demo:** https://youtu.be/K-zOhu7LgnA
+**Code:** https://github.com/sirdesai22/panchayat
 
 ---
 
-## Run it
+## The problem
+
+India's real supply lives on the other end of a phone call. The shop in Koramangala that has the phone you want in stock, the injection moulding unit that can quote your part, the packers who can move your house next Saturday — none of them are on a website with a price on it. Finding the right rate means an hour of calls, in the right language, with the confidence to ask twice. Most people simply pay the first number they hear.
+
+## What it does
+
+PanchayatAI does that hour of calls in ninety seconds. You describe what you want, the target price, and the city. It finds counterparties, dials six of them at once over real PSTN telephony, speaks to each one in their own language, extracts the facts that actually matter for that market, pushes for a better rate, and returns a single comparison board with verified quotes and the money saved.
+
+Like a panchayat, the agents do not work alone: they confer with each other while every line is still open, so a rate quoted on one call becomes leverage on another before either shopkeeper has hung up.
+
+## Built end to end on Sarvam AI
+
+- **Sarvam realtime speech to text** over a streaming socket, with automatic language detection on every turn, so a caller who switches from Kannada to English mid-sentence is followed without a hitch
+- **`sarvam-105b-conversations` as the reasoning core**, driving a state machine that opens, anchors, concedes in planned steps, and holds a reservation price it will not cross
+- **Bulbul v3 text to speech**, synthesised natively at 8 kHz mulaw to match the telephony wire format, so audio moves from the shopkeeper's phone into Sarvam and back with no transcoding in the path
+
+## Key features
+
+**1. Parallel calls that share what they learn.** A live Fact Bus publishes every fact the instant it is spoken, so six conversations behave like one informed buyer instead of six separate ones. Every leverage line is grounded in a rate that genuinely arrived on the bus, verified in code before it can ever be said out loud.
+
+**2. Every language of the market.** Language is detected per turn and the reply is voiced by a matched Bulbul speaker across Hindi, Kannada, Tamil, Telugu and Indian English, with the persona and honorifics that fit the trade.
+
+**3. Human-paced conversation.** Echo-gated barge-in lets the shopkeeper interrupt and be heard immediately, and speech is synthesised sentence by sentence as the reply is still being written, so replies land in the rhythm of a real phone call rather than after a pause.
+
+**4. New markets without new code.** Electronics retail, factory RFQs, freelance hiring and movers each ship as a single declarative skill file describing the fields to extract, what can move on price, the tactics, the voice, and how savings are computed. A new market is a file and a hot reload, not a release.
+
+---
+
+## For developers
+
+### Run it
 
 ```bash
 pnpm install
