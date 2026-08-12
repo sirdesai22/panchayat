@@ -6,7 +6,7 @@
 
 **Watch the demo:**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/K-zOhu7LgnA" title="PanchayatAI demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Watch the PanchayatAI demo](https://img.youtube.com/vi/K-zOhu7LgnA/maxresdefault.jpg)](https://youtu.be/K-zOhu7LgnA)
 
 **Code:** https://github.com/sirdesai22/panchayat
 
