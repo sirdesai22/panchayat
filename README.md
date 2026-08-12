@@ -4,7 +4,10 @@
 
 > PanchayatAI is an AI voice agent that phones India's offline markets and gets you a better price.
 
-**▶ Watch the demo:** https://youtu.be/K-zOhu7LgnA
+**Watch the demo:**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K-zOhu7LgnA" title="PanchayatAI demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 **Code:** https://github.com/sirdesai22/panchayat
 
 ---
@@ -34,6 +37,17 @@ Like a panchayat, the agents do not work alone: they confer with each other whil
 **3. Human-paced conversation.** Echo-gated barge-in lets the shopkeeper interrupt and be heard immediately, and speech is synthesised sentence by sentence as the reply is still being written, so replies land in the rhythm of a real phone call rather than after a pause.
 
 **4. New markets without new code.** Electronics retail, factory RFQs, freelance hiring and movers each ship as a single declarative skill file describing the fields to extract, what can move on price, the tactics, the voice, and how savings are computed. A new market is a file and a hot reload, not a release.
+
+## Tech stack
+
+| Layer | What it uses |
+|---|---|
+| Voice agent | TypeScript pnpm workspace - `apps/orchestrator` (voice engine) + `apps/web` (theater) |
+| Speech | Sarvam AI realtime STT (`mulaw`/8 kHz), `sarvam-105b-conversations`, Bulbul v3 TTS |
+| Telephony | Twilio Media Streams / PSTN, mulaw 8 kHz both ways |
+| Web | Next.js 15 + React 19, server-sent events for the live board |
+| Data | Supabase (missions, calls, savings index) |
+| Skills | Declarative `*.skill.json` packs, zod-validated, hot-reloadable |
 
 ---
 
